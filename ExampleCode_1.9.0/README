@@ -1,0 +1,103 @@
+Contents
+================================
+This package contains Java and C# examples.
+
+Java Examples:
+
+  - Envoy API
+	  - CS1one
+	  - F400
+	  - F510
+	  - F53
+	  - SCN
+	  - SCR
+
+  - JavaPOS API
+	  - F53JavaPOS
+	  - JetsortJavaPOS
+	  - RCDJavaPOS
+
+C# Examples:
+
+  - F53
+  - SCN
+
+NOTE: The C# support is provided by IKVM (ikvm.net), and is a 1:1 approximation
+of the Java Envoy API.  For both the Java and C# APIs, please consult the
+JavaDocs included in the Envoy installation and the Envoy Programmer's Guide
+located at the ARCA Developer Portal (http://developer.arca.com/envoy).
+
+
+
+Before Running the Examples
+================================
+All Envoy-based applications require a running Envoy Service in order to
+function.  Confirm that the Envoy Service is running on your system for best
+results.
+
+Some examples require that a device already be registered for the
+example to run properly. If so, confirm that the target device is registered
+using the EnvoyHome application. For example requirements, see the JavaDoc
+comment above the example class definition.
+
+On Windows, the Envoy Service is a Windows Service.  On Linux, the service can
+be started, stopped, and restarted using Upstart's start/stop/restart commands.
+See the Envoy Programmer's Guide (http://developer.arca.com/envoy) for more
+details on Upstart commands.
+
+
+
+Java Example Instructions
+================================
+Note: The Java examples are expected to be compiled with a Java 8 compiler.
+
+The Envoy API examples require only the LibEnvoyAPI JAR file. The JavaPOS API 
+examples also require LibJavaPOSAPI and jpos114 JAR files. You can find these
+JAR files in the Envoy installation directory.
+
+
+Compilation
+----------------
+
+To compile an Envoy example Java program on Windows, issue the following 
+command in a command prompt window:
+
+  javac -cp .;LibEnvoyAPI.jar src\com\arca\envoy\example\<example>.java
+
+To compile an Envoy example Java program on Linux, issue the following command
+in a terminal window:
+
+  javac -cp .:LibEnvoyAPI.jar src/com/arca/envoy/example/<example>.java
+  
+Note: To compile a JavaPOS example, add LibJavaPOSAPI.jar and jpos114.jar to
+the classpath argument.
+
+
+Execution
+----------------
+As stated above, ensure the Envoy service is running before running an example.
+
+Due to the package name used in the examples, move into the src directory 
+before running the example:
+
+  cd src
+
+To execute an example Java program on Windows, issue the following command in a
+command prompt window:
+
+  java -cp .;..\LibEnvoyAPI.jar com.arca.envoy.example.<example-class-name>
+
+To execute an example Java program on Linux, issue the following command in a
+terminal window:
+
+  java -cp .:../LibEnvoyAPI.jar com.arca.envoy.example.<example-class-name>
+
+Note: To execute a JavaPOS example, add LibJavaPOSAPI.jar and jpos114.jar to
+the classpath argument.
+
+
+
+C# Example Instructions
+================================
+Full steps for building the C# applications are provided in the Envoy
+Programmer's Guide (http://developer.arca.com/envoy).
