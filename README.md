@@ -1,6 +1,8 @@
 Envoy Programmer's Guide
 Introduction
 
+http://developer.arca.com/node/36
+
 This manual is intended for programmers who will develop applications using the Envoy Software Development Kit (SDK). Envoy is designed to unify the interaction of several transaction management devices into a single Application Programming Interface (API). The diagram below demonstrates how the Envoy API could be used to interact with various objects.
 
 
@@ -45,7 +47,8 @@ EnvoyHome is used to complete licensing and registration of devices for operatio
 
 Default installation paths:
 
-        Linux: /opt/ARCA/envoy
+    ​Windows: C:\Program Files (x86)\ARCA\Envoy\
+    Linux: /opt/ARCA/envoy
 
 Licensing
 
@@ -167,7 +170,7 @@ Dispense by Position
 The Dispense by Position command will pick bills as requested per cassette position. Since each bill is checked before presentation to the customer, the correct bill parameters must be set prior to dispensing.
 Dispense by Denomination
 
-The Dispense by Denomination command analyzes the cassette types in the dispenser and will pick bills as requested by cassette denomination Ðregardless of position. If one cassette is emptied of notes and another of the same type is not empty, Envoy will auto-substitute notes from the non-empty cassette.
+The Dispense by Denomination command analyzes the cassette types in the dispenser and will pick bills as requested by cassette denomination – regardless of position. If one cassette is emptied of notes and another of the same type is not empty, Envoy will auto-substitute notes from the non-empty cassette.
 Dispense by Amount
 
 The Dispense by Amount command analyzes the cassette types in the dispenser and will pick bills as requested by total value. As long as the requested amount can be satisfied with the given cassette denomination, the optimal bill quantities will be picked. Dispense by Amount will also use the auto-substitute feature to ensure more successful dispenses.
@@ -327,7 +330,7 @@ CASSETTE_FULL	Cash box full
 JAMMED	Machine has jammed
 JAM_CLEARED	Previous jam now cleared
 CHEATED	Machine has detected a cheat
-ESCROWED	Bill has been accepted and is in the deviceÕ intermediate area.
+ESCROWED	Bill has been accepted and is in the device’s intermediate area.
 STACKED	Note has been stored into device storage
 RETURNED	Bill that was in escrow has been returned
 
@@ -369,7 +372,7 @@ TRANSPORT_CLOSED	The bill transport path has been closed
 JAMMED	Machine has jammed
 JAM_CLEARED	Previous jam now cleared
 CHEATED	Machine has detected a cheat
-ESCROWED	Bill has been accepted and is in the deviceÕ intermediate area.
+ESCROWED	Bill has been accepted and is in the device’s intermediate area.
 STACKED	Note has been stored into device storage
 RETURNED	Bill in escrow has been returned to user
 CASSETTE_FULL	A spool is full and can no longer stack bills
@@ -481,7 +484,7 @@ Software Reset
 
 The Software Reset function sends a reset command to the device which clears the unit of all errors. Upon command completion a reply code will be returned.
 
-NOTE: Resetting the device will not clear a Ôag FullÕstatus.
+NOTE: Resetting the device will not clear a ‘Bag Full’ status.
 Hardware Reset
 
 Instructs the device to perform a hardware reset and will return the device status code when communication between the host and the device has been restored.
@@ -512,10 +515,12 @@ Validation Template
 
 Validation Template will return a 30 character string representing the version of the current cash validation template.
 
-ex.: ÒS1 ver. 1.0 USD-01.00 Ó
+ex.: “CS1 ver. 1.0 USD-01.00 ”
+
 Get Currency Code
 
-Get Currency Code returns the currency code that the CS1one is currently set to. For example, if the CS1one is setup to accept Euros, then the output of EnvoyHome will be, ÒUR.Ó
+Get Currency Code returns the currency code that the CS1one is currently set to. For example, if the CS1one is setup to accept Euros, then the output of EnvoyHome will be, “EUR.”
+
     EUR - Euros
     USD - US Dollars
     GBP - British Pounds
@@ -603,9 +608,9 @@ Error Codes and Error Handling
 
 There are three categories of errors:
 
-    RemoteException ÐThe Remote Method Invocation (RMI) has experienced a connection error and your application is no longer connected with Envoy. You may want to review the host PC system configuration and Envoy Service for the cause of the issue.
-    APICommandException ÐEnvoy has experienced a software error. Two potential causes for this error could be bad parameters, or a failure to read or write to a device. See EnvoyErrorEnum for more details on the kinds of errors that APICommandException can represent.
-    Device Specific Error ÐEnvoy can report device-specific errors that are unique for each device type. For F53 specific errors, please consult the F53ErrorEnum within the Envoy JavaDoc support documentation.
+    RemoteException – The Remote Method Invocation (RMI) has experienced a connection error and your application is no longer connected with Envoy. You may want to review the host PC system configuration and Envoy Service for the cause of the issue.
+    APICommandException – Envoy has experienced a software error. Two potential causes for this error could be bad parameters, or a failure to read or write to a device. See EnvoyErrorEnum for more details on the kinds of errors that APICommandException can represent.
+    Device Specific Error – Envoy can report device-specific errors that are unique for each device type. For F53 specific errors, please consult the F53ErrorEnum within the Envoy JavaDoc support documentation.
 
 Addendum: SCR Edge Conditions in EnvoyHome
 
@@ -650,4 +655,3 @@ USD$1 and USD$20 are enabled for recycling. There are currently two $1 notes and
 Output within EnvoyHome
 
 API: BADPARAMETER: Cannot float that denomination: USD$5
-
